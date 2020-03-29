@@ -28,6 +28,6 @@ k = KubernetesPodOperator(
     image="alpine:3.11.5",
     cmds=["/bin/sh"],
     arguments=["-c", "echo \"Hello human, I'm running in a container with: $(uname -r)\"; sleep 10"],
-    is_delete_operator_pod=False,
+    is_delete_operator_pod=True,
     in_cluster=False
 )
