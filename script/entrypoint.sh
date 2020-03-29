@@ -5,6 +5,10 @@
 # Therefore, this script must only derives Airflow AIRFLOW__ variables from other variables
 # when the user did not provide their own configuration.
 
+# Configure hosts file to allow access to kubernetes in host (provided by docker)
+echo "$(ip route show | awk '/default/ {print $3}') kubernetes.docker.internal" >> ~/.hosts
+export HOSTALIASES=~/.hosts
+
 TRY_LOOP="20"
 
 # Global defaults and back-compat
